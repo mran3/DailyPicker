@@ -6,8 +6,8 @@
 //  Copyright © 2019 zourz. All rights reserved.
 //
 
-import Foundation
 import UIKit
+import Alamofire
 import CoreData
 
 class PostsViewModel {
@@ -28,7 +28,35 @@ class PostsViewModel {
         }
     }
     
-    func favoritePost(with id:Int) -> Void {
-        mainView?.favoritePosts.append(id)
+    func favoritePost(post: Post) -> Void {
+        var favPost = post
+        favPost.isFavorite = true
+        if let row = mainView?.arPosts.firstIndex(where: {$0.id == post.id}) {
+            mainView?.arPosts[row] = favPost
+        }
+    }
+    
+    func readPost(post: Post) -> Void {
+        var readPost = post
+        readPost.isNew = false
+        if let row = mainView?.arPosts.firstIndex(where: {$0.id == post.id}) {
+            mainView?.arPosts[row] = readPost
+        }
+    }
+    
+    func loadPosts() {
+        AF.request(APIRouter.posts).responseDecodable(of: [Post].self) { response in
+            switch response.result {
+            case .success:
+                self.mainView?.arPosts = response.value ?? []
+                
+            case let .failure(error):
+                print(error)
+            }
+        }
+    }
+    
+    func clearPosts() {
+        mainView?.arPosts = []
     }
 }

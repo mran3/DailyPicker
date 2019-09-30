@@ -25,7 +25,7 @@ struct PostDetailView: View {
                 Text("Phone")
                 Text("Website")
                 Spacer()
-            }
+            }.padding()
         }
         .navigationBarTitle(Text("Description"))
         .navigationBarItems(trailing:
@@ -35,19 +35,21 @@ struct PostDetailView: View {
         .alert(isPresented: $showingAlert) {
             Alert(title: Text("Added to favorites"), message: Text("You can find this post on your favorites"), dismissButton: .default(Text("Got it!")))
         }
-    
+        .onAppear(perform: {
+            self.viewModel?.readPost(post: self.post)
+        })
         
     }
     
     private func addToFavorites() {
         self.showingAlert = true
-        self.viewModel?.favoritePost(with: self.post.id)
+        self.viewModel?.favoritePost(post: post)
     }
 }
 
 struct PostDetail_Previews: PreviewProvider {
     static var previews: some View {
-        PostDetailView(post: Post(userId: 1, id: 1, title: "Test title", body: "Test body"))
+        PostDetailView(post: Post(userId: 1, id: 1, title: "Test title", body: "Test body", isFavorite: true))
     }
 }
 
