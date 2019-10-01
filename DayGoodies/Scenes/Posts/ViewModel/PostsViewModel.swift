@@ -46,7 +46,7 @@ class PostsViewModel: ObservableObject {
                     print(error)
                 }
             }
-        } else {            
+        } else {
             guard let savedPostsString = getPostsFromLocal() else {
                 loadPosts()
                 return

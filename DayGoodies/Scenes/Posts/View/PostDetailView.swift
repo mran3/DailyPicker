@@ -15,36 +15,38 @@ struct PostDetailView: View {
     var viewModel: PostsViewModel?
     @State private var showingAlert = false
     var body: some View {
-        NavigationView {
-            VStack(alignment: .leading) {
-                Text(post.body)
-                Spacer()
-                Text("User").bold()
-                Text("Name")
-                Text("Email")
-                Text("Phone")
-                Text("Website")
-                Spacer()
-            }.padding()
-        }
-        .navigationBarTitle(Text("Description"))
-        .navigationBarItems(trailing:
+        Group {
+            VStack(alignment: .leading, spacing: 20) {
+                    Text(post.body)
+                    Spacer()
+                    Divider()
+                    Spacer()
+                    Text("User").bold().font(.system(size: 30)).padding(.bottom, 20)
+                    Text("Name: Andres Acevedo")
+                    Text("Email: andacecha@yahoo.com")
+                    Text("Phone: 123-456-789")
+                    Text("Website: twitter.com/mran3")
+                        .padding(.bottom, 40)
+                    
+                }.padding()
+            .alert(isPresented: $showingAlert) {
+                Alert(title: Text("Added to favorites"), message: Text("You can find this post on your favorites"), dismissButton: .default(Text("Got it!")))
+            }
+        }.navigationBarItems(trailing:
             Button(action: self.addToFavorites) {
                 Text("Favorite")
-        })
-        .alert(isPresented: $showingAlert) {
-            Alert(title: Text("Added to favorites"), message: Text("You can find this post on your favorites"), dismissButton: .default(Text("Got it!")))
-        }
-        .onAppear(perform: {
-            self.viewModel?.readPost(post: self.post)
-        })
+        }).navigationBarTitle(Text(post.body))
         
-    }
+    .onAppear(perform: {
+    self.viewModel?.readPost(post: self.post)
+    })
     
-    private func addToFavorites() {
-        self.showingAlert = true
-        self.viewModel?.favoritePost(post: post)
-    }
+}
+
+private func addToFavorites() {
+    self.showingAlert = true
+    self.viewModel?.favoritePost(post: post)
+}
 }
 
 struct PostDetail_Previews: PreviewProvider {

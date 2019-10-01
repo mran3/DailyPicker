@@ -14,8 +14,8 @@
             filePath = "DayGoodies/Scenes/Posts/ViewModel/PostsViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
             landmarkName = "loadPosts(fetchFromRemote:)"
             landmarkType = "7">
             <Locations>
