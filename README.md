@@ -1,10 +1,11 @@
-# DailyPicker
+# Daily Post Picker
 
-Example App that fetchs a JSON API with Alamofire.
+Example iOS App that fetchs a JSON API with Alamofire.
 
-*Uses*
--MVVM architecture.
--SwiftUI and Swift 5 (Make sure you use XCode 11+ to open it).
--Navigation View.
--Codable.
-—Combine.
+** Showcases **
+- MVVM architecture.
+- SwiftUI and Swift 5 (Make sure you use XCode 11+ to open it).
+- Navigation View.
+- Codable.
+— Combine.
+- Basic Core Data.
