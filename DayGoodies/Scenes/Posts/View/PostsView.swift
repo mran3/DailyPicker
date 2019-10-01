@@ -13,7 +13,8 @@ struct PostsView: View {
     @State var arPosts: [Post] = []
     @State var readPosts: [Int] = []
     @State var favoritePosts: [Int] = []
-    var viewModel = PostsViewModel()
+    
+    @ObservedObject var viewModel = PostsViewModel()
     
     var body: some View {
         VStack {
@@ -25,7 +26,7 @@ struct PostsView: View {
                     }.pickerStyle(SegmentedPickerStyle())
                     
                     List {
-                        ForEach(arPosts) { post in
+                        ForEach(viewModel.arPosts) { post in
                             if(self.selectorIndex == 0) {
                                 PostListItem(post: post, viewModel: self.viewModel)
                             } else if (self.selectorIndex == 1 && (post.isFavorite.map { $0 } ?? false)) {
@@ -47,13 +48,11 @@ struct PostsView: View {
                         Text("Reload")
                 })
             }
-        }.onAppear(perform: {
-            self.viewModel.mainView = self
-            self.viewModel.loadPosts(fetchFromRemote: false) // Initially we try to get posts from Core Data storage.
-        })
+        }
     }
     
     init() {
+        self.viewModel.loadPosts(fetchFromRemote: false) // Initially we try to get posts from Core Data storage.
     }
     
     private func clearPosts() {
@@ -64,8 +63,6 @@ struct PostsView: View {
     }
 
 }
-
-
 
 struct Posts_Previews: PreviewProvider {
     static var previews: some View {

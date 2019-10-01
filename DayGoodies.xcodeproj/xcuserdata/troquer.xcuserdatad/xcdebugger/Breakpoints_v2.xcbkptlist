@@ -8,16 +8,48 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "CE758AF6-EDA9-401C-B35F-A66F57D0B67B"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DayGoodies/Scenes/Posts/ViewModel/PostsViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
             landmarkName = "loadPosts(fetchFromRemote:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "CE758AF6-EDA9-401C-B35F-A66F57D0B67B - a9391d21f360c40e"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DayGoodies.PostsViewModel.loadPosts(fetchFromRemote: Swift.Bool) -&gt; ()"
+                  moduleName = "DayGoodies"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/troquer/Documents/iOS/DayGoodies/DayGoodies/Scenes/Posts/ViewModel/PostsViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
+                  offsetFromSymbolStart = "1103">
+               </Location>
+               <Location
+                  uuid = "CE758AF6-EDA9-401C-B35F-A66F57D0B67B - a9391d21f360c40e"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DayGoodies.PostsViewModel.loadPosts(fetchFromRemote: Swift.Bool) -&gt; ()"
+                  moduleName = "DayGoodies"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/troquer/Documents/iOS/DayGoodies/DayGoodies/Scenes/Posts/ViewModel/PostsViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
+                  offsetFromSymbolStart = "1270">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

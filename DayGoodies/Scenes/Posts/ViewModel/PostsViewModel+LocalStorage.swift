@@ -11,6 +11,7 @@ import CoreData
 extension PostsViewModel {
     
     func savePostsOnLocal(postsToSave: [Post]) {
+        deleteLocalPosts() // We want to persist just the last set of Posts.
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let managedContext = appDelegate.persistentContainer.viewContext
         guard let postsEntity = NSEntityDescription.entity(forEntityName: "Posts", in: managedContext) else { return }

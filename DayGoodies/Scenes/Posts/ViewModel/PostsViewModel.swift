@@ -8,38 +8,27 @@
 
 import UIKit
 import Alamofire
+import Combine
 
-class PostsViewModel {
+class PostsViewModel: ObservableObject {
+    
+    @Published var arPosts: [Post] = []
     
     var mainView: PostsView?
-    
-//    func savePost(title:String, content:String) -> Void {
-//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-//        let context = appDelegate.persistentContainer.viewContext
-//        let postsEntity = NSEntityDescription.entity(forEntityName: "Posts", in: context)
-//        let newPost = NSManagedObject(entity: postsEntity!, insertInto: context)
-//        newPost.setValue(title, forKey: "title")
-//        newPost.setValue(content, forKey: "body")
-//        do {
-//            try context.save()
-//        } catch {
-//            print("Failed saving")
-//        }
-//    }
     
     func favoritePost(post: Post) -> Void {
         var favPost = post
         favPost.isFavorite = true
-        if let row = mainView?.arPosts.firstIndex(where: {$0.id == post.id}) {
-            mainView?.arPosts[row] = favPost
+        if let row = self.arPosts.firstIndex(where: {$0.id == post.id}) {
+            self.arPosts[row] = favPost
         }
     }
     
     func readPost(post: Post) -> Void {
         var readPost = post
         readPost.isNew = false
-        if let row = mainView?.arPosts.firstIndex(where: {$0.id == post.id}) {
-            mainView?.arPosts[row] = readPost
+        if let row = self.arPosts.firstIndex(where: {$0.id == post.id}) {
+            self.arPosts[row] = readPost
         }
     }
     
@@ -51,13 +40,13 @@ class PostsViewModel {
                     guard let loadedPosts = response.value else {
                         return
                     }
-                    self.mainView?.arPosts = loadedPosts
+                    self.arPosts = loadedPosts
                     self.savePostsOnLocal(postsToSave: loadedPosts)
                 case let .failure(error):
                     print(error)
                 }
             }
-        } else {
+        } else {            
             guard let savedPostsString = getPostsFromLocal() else {
                 loadPosts()
                 return
@@ -70,19 +59,16 @@ class PostsViewModel {
                 // Decode data to object
                 let jsonDecoder = JSONDecoder()
                 let loadedPosts = try jsonDecoder.decode([Post].self, from: savedPostData)
-                self.mainView?.arPosts = loadedPosts
-            }
+                self.arPosts = loadedPosts            }
             catch {
+                print("Error decoding to Json")
             }
             
         }
-        
     }
     
     func clearPosts() {
-        mainView?.arPosts = []
+        arPosts = []
     }
-    
-    
     
 }
