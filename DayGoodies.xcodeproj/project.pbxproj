@@ -16,6 +16,8 @@
 		0C4C4F5E2340812100BA9DA2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C4C4F5C2340812100BA9DA2 /* LaunchScreen.storyboard */; };
 		0CA5C9A323429F0C001106BB /* PostListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA5C9A223429F0C001106BB /* PostListItem.swift */; };
 		0CA5C9A523429F45001106BB /* FavoritePostListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA5C9A423429F45001106BB /* FavoritePostListItem.swift */; };
+		0CA5C9A82342ABE0001106BB /* JSONEncoder+toJsonString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA5C9A72342ABE0001106BB /* JSONEncoder+toJsonString.swift */; };
+		0CA5C9AA2342B43B001106BB /* PostsViewModel+LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA5C9A92342B43B001106BB /* PostsViewModel+LocalStorage.swift */; };
 		0CCF40B223408593003A9EC1 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 0CCF40B123408593003A9EC1 /* Alamofire */; };
 		0CCF40B5234111FF003A9EC1 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF40B4234111FF003A9EC1 /* Post.swift */; };
 		0CCF40B823417745003A9EC1 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF40B723417745003A9EC1 /* Router.swift */; };
@@ -38,6 +40,8 @@
 		0C4C4F5F2340812100BA9DA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0CA5C9A223429F0C001106BB /* PostListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListItem.swift; sourceTree = "<group>"; };
 		0CA5C9A423429F45001106BB /* FavoritePostListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePostListItem.swift; sourceTree = "<group>"; };
+		0CA5C9A72342ABE0001106BB /* JSONEncoder+toJsonString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONEncoder+toJsonString.swift"; sourceTree = "<group>"; };
+		0CA5C9A92342B43B001106BB /* PostsViewModel+LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PostsViewModel+LocalStorage.swift"; sourceTree = "<group>"; };
 		0CCF40B4234111FF003A9EC1 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		0CCF40B723417745003A9EC1 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		0CCF40B923417867003A9EC1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -78,6 +82,7 @@
 		0C4C4F4D234080F600BA9DA2 /* DayGoodies */ = {
 			isa = PBXGroup;
 			children = (
+				0CA5C9A62342A2B8001106BB /* Extensions */,
 				0CCF40B623417713003A9EC1 /* Networking */,
 				0CCF40B3234111E1003A9EC1 /* Scenes */,
 				0C4C4F4E234080F600BA9DA2 /* AppDelegate.swift */,
@@ -98,6 +103,14 @@
 				0C4C4F5A2340812100BA9DA2 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		0CA5C9A62342A2B8001106BB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0CA5C9A72342ABE0001106BB /* JSONEncoder+toJsonString.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		0CCF40B3234111E1003A9EC1 /* Scenes */ = {
@@ -124,7 +137,6 @@
 				0CCF40C22341BD31003A9EC1 /* ViewModel */,
 				0CCF40C123419EE6003A9EC1 /* View */,
 				0CCF40C023419EDA003A9EC1 /* Model */,
-				0CCF40B4234111FF003A9EC1 /* Post.swift */,
 			);
 			path = Posts;
 			sourceTree = "<group>";
@@ -132,6 +144,7 @@
 		0CCF40C023419EDA003A9EC1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0CCF40B4234111FF003A9EC1 /* Post.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -151,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				0CCF40C32341BD4B003A9EC1 /* PostsViewModel.swift */,
+				0CA5C9A92342B43B001106BB /* PostsViewModel+LocalStorage.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -235,9 +249,11 @@
 				0C4C4F4F234080F600BA9DA2 /* AppDelegate.swift in Sources */,
 				0CCF40BF23419A0B003A9EC1 /* PostDetailView.swift in Sources */,
 				0CA5C9A323429F0C001106BB /* PostListItem.swift in Sources */,
+				0CA5C9A82342ABE0001106BB /* JSONEncoder+toJsonString.swift in Sources */,
 				0C4C4F51234080F700BA9DA2 /* SceneDelegate.swift in Sources */,
 				0C4C4F56234080F700BA9DA2 /* PostsView.swift in Sources */,
 				0CCF40BC23417C22003A9EC1 /* APIConfiguration.swift in Sources */,
+				0CA5C9AA2342B43B001106BB /* PostsViewModel+LocalStorage.swift in Sources */,
 				0CCF40C62341CEE5003A9EC1 /* ActivityIndicator.swift in Sources */,
 				0C4C4F54234080F700BA9DA2 /* DayGoodies.xcdatamodeld in Sources */,
 				0CA5C9A523429F45001106BB /* FavoritePostListItem.swift in Sources */,

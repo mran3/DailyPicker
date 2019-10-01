@@ -43,16 +43,17 @@ struct PostsView: View {
                     }.background(Color.red)
                 }.navigationBarTitle(Text("Posts"))
                 .navigationBarItems(trailing:
-                    Button(action: self.viewModel.loadPosts) {
+                    Button(action: {self.viewModel.loadPosts()}) {
                         Text("Reload")
                 })
             }
-        }
+        }.onAppear(perform: {
+            self.viewModel.mainView = self
+            self.viewModel.loadPosts(fetchFromRemote: false) // Initially we try to get posts from Core Data storage.
+        })
     }
     
     init() {
-        self.viewModel.loadPosts()
-        self.viewModel.mainView = self
     }
     
     private func clearPosts() {
